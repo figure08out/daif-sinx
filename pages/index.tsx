@@ -57,6 +57,7 @@ function Slideshow({ images }) {
   }, [images.length]);
   return (
     <div className="relative w-full h-[60vh] xs:h-[70vh] md:h-[38rem] rounded-xl overflow-hidden shadow-xl bg-white/30">
+
       {images.map((src, i) => (
         <motion.div
           key={src}
@@ -100,6 +101,7 @@ export default function Home() {
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet" />
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" />
+
       </Head>
 
       {/* Animated/Blob Background */}
@@ -127,6 +129,7 @@ export default function Home() {
 
       {/* Hero + Slideshow */}
       <Section className="relative min-h-[90vh] flex items-center justify-center text-center px-2 pb-2 xs:pb-4 md:pb-12 pt-8 xs:pt-12 overflow-hidden">
+
         <div className="absolute inset-0 z-0">
           <Slideshow images={eventImages} />
           <div className="absolute inset-0 bg-black/50" />
@@ -139,6 +142,7 @@ export default function Home() {
             at Dubai AI Festival
           </h2>
           <p className="text-sm xs:text-base md:text-2xl text-purple-200 mb-8 font-medium">April 23-24, 2025 | A Celebration of AI Innovation</p>
+
         </div>
       </Section>
 
@@ -161,6 +165,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center p-8 bg-white/90 rounded-xl shadow-lg hover:shadow-2xl hover:bg-purple-50 transition-all border border-purple-200 w-full mb-6 last:mb-0"
+
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -178,6 +183,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center p-8 bg-white/90 rounded-xl shadow-lg hover:shadow-2xl hover:bg-purple-50 transition-all border border-purple-200 w-full mb-6 last:mb-0"
+
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -192,6 +198,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
             className="flex flex-col items-center p-8 bg-white/90 rounded-xl shadow-lg hover:shadow-2xl hover:bg-purple-50 transition-all border border-purple-200 w-full mb-6 last:mb-0"
+
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.97 }}
           >
@@ -206,6 +213,7 @@ export default function Home() {
 
       {/* image.png Post */}
       <Section className="bg-white/60 rounded-2xl max-w-5xl mx-auto px-2 xs:px-4 shadow-lg mb-16 mt-2 xs:mt-4 md:mt-12">
+
         <h2 className="text-2xl xs:text-3xl font-bold mb-10 text-center text-purple-700">From Our Social Media</h2>
         <div className="w-full flex flex-col md:flex-row gap-8 h-[650px] overflow-hidden rounded-xl">
           <iframe 
@@ -239,6 +247,7 @@ export default function Home() {
           >
             {/* News badge and date */}
             <div className="absolute left-4 xs:left-8 top-4 xs:top-8 flex items-center gap-3">
+
               <span className="bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full tracking-widest shadow uppercase">Press Release</span>
               <span className="text-xs text-gray-400 font-semibold ml-2">April 2025</span>
             </div>
@@ -247,12 +256,14 @@ export default function Home() {
               SinX Solutions Launches My Career Growth
             </h3>
             <p className="text-base xs:text-lg md:text-xl text-purple-700 mb-4 text-center max-w-2xl leading-snug md:leading-normal">
+
               At the Dubai AI Festival, SinX Solutions proudly unveiled <span className="font-bold text-purple-900">My Career Growth</span> (MCG)—an AI-powered platform designed to transform how professionals navigate their careers. MCG empowers users with personalized, AI-driven tools for resume building, career roadmaps, skill gap analysis, and mock interviews. The launch drew crowds and sparked conversations about the future of work, with attendees experiencing firsthand how MCG makes career development smarter, faster, and more accessible for everyone.
             </p>
             <motion.a
               href="#"
               whileHover={{ scale: 1.04 }}
               className="bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center font-bold text-base xs:text-lg px-6 xs:px-8 py-2 xs:py-3 rounded-lg shadow transition-transform border border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200"
+
             >
               Read More <ArrowRightIcon className="w-5 h-5 ml-2" />
             </motion.a>
