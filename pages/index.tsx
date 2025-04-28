@@ -56,7 +56,7 @@ function Slideshow({ images }) {
     return () => clearInterval(timer);
   }, [images.length]);
   return (
-    <div className="relative w-full h-[60vh] xs:h-[70vh] md:h-[38rem] rounded-xl overflow-hidden shadow-xl bg-white/30">
+    <div className="relative w-full h-screen xs:h-[70vh] md:h-[38rem] rounded-xl overflow-hidden shadow-xl bg-white/30">
       {images.map((src, i) => (
         <motion.div
           key={src}
@@ -70,7 +70,7 @@ function Slideshow({ images }) {
             src={src}
             alt={`Event highlight ${i + 1}`}
             fill
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            style={{ objectFit: 'cover', objectPosition: 'top' }}
             priority={i === 0}
             sizes="(max-width: 768px) 100vw, 80vw"
           />
