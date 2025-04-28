@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-navy: #181828;
+  --color-purple: #7b2ff2;
+  --color-blue: #40a9ff;
+  --color-gradient: linear-gradient(90deg, #7b2ff2 0%, #40a9ff 100%);
+  --color-offwhite: #f3f3fa;
+  --color-lavender: #b8aee0;
+  --color-card-bg: rgba(44, 36, 66, 0.85);
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-navy);
+  color: var(--color-offwhite);
+}
+
+body {
+  @apply text-white;
+  background: var(--color-navy);
+  color: var(--color-offwhite);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  background: var(--color-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+a {
+  color: var(--color-blue);
+  transition: color 0.2s;
+}
+a:hover {
+  color: var(--color-purple);
+}
+
+.section-card {
+  background: var(--color-card-bg);
+  backdrop-filter: blur(8px);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 32px rgba(64, 169, 255, 0.08);
+}
+
+.text-secondary {
+  color: var(--color-lavender);
+} 
