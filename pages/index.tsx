@@ -56,7 +56,7 @@ function Slideshow({ images }) {
     return () => clearInterval(timer);
   }, [images.length]);
   return (
-    <div className="relative w-full h-[60vh] xs:h-[70vh] md:h-[38rem] rounded-xl overflow-hidden shadow-xl bg-white/30">
+    <div className="relative w-full h-[90vh] xs:h-[70vh] md:h-[38rem] rounded-xl overflow-hidden shadow-xl bg-white/30">
       {images.map((src, i) => (
         <motion.div
           key={src}
@@ -127,26 +127,26 @@ export default function Home() {
       </nav>
 
       {/* Hero + Slideshow */}
-      <Section className="relative min-h-[90vh] flex items-center justify-center text-center px-2 pb-2 xs:pb-4 md:pb-12 pt-8 xs:pt-12 overflow-hidden">
+      <Section className="relative min-h-[90vh] flex items-center justify-center text-center px-2 pb-0 xs:pb-0 md:pb-0 pt-8 xs:pt-12 overflow-hidden">
 
         <div className="absolute inset-0 z-0">
           <Slideshow images={eventImages} />
           <div className="absolute inset-0 bg-black/50" />
         </div>
         <div className="relative z-10 w-full flex flex-col items-center justify-center">
-          <h1 className="text-3xl xs:text-4xl md:text-7xl font-extrabold mb-2" style={{ fontFamily: 'Orbitron, BankGothic, sans-serif', color: '#e0e0e0', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+          <h1 className="text-4xl xs:text-5xl md:text-7xl font-extrabold mb-2" style={{ fontFamily: 'Orbitron, BankGothic, sans-serif', color: '#e0e0e0', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
             SinX Solutions
           </h1>
-          <h2 className="text-2xl xs:text-3xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-300 drop-shadow-lg" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+          <h2 className="text-3xl xs:text-4xl md:text-5xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-300 drop-shadow-lg" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
             at Dubai AI Festival
           </h2>
-          <p className="text-sm xs:text-base md:text-2xl text-purple-200 mb-8 font-medium">April 23-24, 2025 | A Celebration of AI Innovation</p>
+          <p className="text-base xs:text-lg md:text-2xl text-purple-200 mb-8 font-medium">April 23-24, 2025 | A Celebration of AI Innovation</p>
 
         </div>
       </Section>
 
       {/* About SinX Solutions */}
-      <Section className="max-w-3xl mx-auto px-2 xs:px-4 mb-16 pt-16 pb-16">
+      <Section className="max-w-3xl mx-auto px-2 xs:px-4 mb-16 pt-8 pb-16">
         <div className="flex flex-col items-center text-center">
           <Image src="/SinX.png" alt="SinX Solutions logo" width={140} height={140} className="mb-4" />
           <h2 className="text-5xl font-extrabold text-purple-800 mb-4">SinX Solutions</h2>
