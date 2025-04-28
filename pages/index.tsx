@@ -71,6 +71,7 @@ function Slideshow({ images }) {
             alt={`Event highlight ${i + 1}`}
             fill
             style={{ objectFit: 'cover', objectPosition: 'top' }}
+
             priority={i === 0}
             sizes="(max-width: 768px) 100vw, 80vw"
           />
