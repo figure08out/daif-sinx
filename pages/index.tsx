@@ -56,7 +56,7 @@ function Slideshow({ images }) {
     return () => clearInterval(timer);
   }, [images.length]);
   return (
-    <div className="relative w-full h-64 xs:h-80 sm:h-96 md:h-[32rem] lg:h-[38rem] rounded-xl overflow-hidden shadow-xl bg-white/30">
+    <div className="relative w-full h-96 xs:h-[28rem] sm:h-96 md:h-[32rem] lg:h-[38rem] rounded-xl overflow-hidden shadow-xl bg-white/30">
       {images.map((src, i) => (
         <motion.div
           key={src}
@@ -98,6 +98,7 @@ export default function Home() {
         <title>SinX at Dubai AI Festival 2025</title>
         <meta name="description" content="Highlights from the Dubai AI Festival 2025 - A celebration of artificial intelligence and innovation" />
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&display=swap" rel="stylesheet" />
       </Head>
 
       {/* Animated/Blob Background */}
@@ -124,68 +125,91 @@ export default function Home() {
       </nav>
 
       {/* Hero + Slideshow */}
-      <Section className="min-h-[60vh] flex flex-col items-center justify-center text-center px-2">
-        <h1 className="text-4xl xs:text-5xl md:text-7xl font-extrabold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-purple-700 via-fuchsia-500 to-blue-400 drop-shadow-lg" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.03em', lineHeight: 1.1 }}>SinX at Dubai AI Festival</h1>
-        <p className="text-base xs:text-lg md:text-2xl text-purple-900 mb-8 font-medium">April 23-24, 2025 | A Celebration of AI Innovation</p>
-        <div className="w-full max-w-[90vw] xl:max-w-[1600px] mx-auto">
-          <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white/10" style={{background: 'var(--color-card-bg)'}}>
-            <Slideshow images={eventImages} />
-          </div>
+      <Section className="relative min-h-screen flex items-center justify-center text-center px-2 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <Slideshow images={eventImages} />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <div className="relative z-10 w-full flex flex-col items-center justify-center">
+          <h1 className="text-5xl xs:text-6xl md:text-8xl font-extrabold mb-2" style={{ fontFamily: 'Orbitron, BankGothic, sans-serif', color: '#e0e0e0', letterSpacing: '-0.03em', lineHeight: 1.1 }}>
+            SinX Solutions
+          </h1>
+          <h2 className="text-4xl xs:text-5xl md:text-7xl font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-blue-300 drop-shadow-lg" style={{ fontFamily: 'Montserrat, sans-serif', letterSpacing: '-0.02em', lineHeight: 1.1 }}>
+            at Dubai AI Festival
+          </h2>
+          <p className="text-base xs:text-lg md:text-2xl text-purple-200 mb-8 font-medium">April 23-24, 2025 | A Celebration of AI Innovation</p>
         </div>
       </Section>
 
-      {/* Products Section - B2B */}
-      <Section className="bg-white/60 rounded-2xl max-w-6xl mx-auto px-2 xs:px-4 shadow-lg mb-12">
-        <h2 className="text-3xl xs:text-4xl font-bold mb-4 text-center text-purple-700">Our Products</h2>
-        <h3 className="text-xl xs:text-2xl font-semibold mb-6 text-purple-600 text-center">B2B Solutions</h3>
-        <div className="grid grid-cols-1 xs:grid-cols-2 gap-6 md:gap-8 mb-10">
-          {products.b2b.map((product) => (
-            <motion.a
-              key={product.url}
-              href={product.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center p-4 xs:p-6 bg-white rounded-xl shadow-md hover:shadow-xl hover:bg-purple-50 transition-all border border-purple-100 mb-6"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <div className="w-16 h-16 xs:w-20 xs:h-20 mb-4 flex items-center justify-center">
-                <Image src={product.logo} alt={product.name + ' logo'} width={80} height={80} />
-              </div>
-              <h3 className="text-base xs:text-lg font-semibold text-purple-800 mb-1 text-center">{product.name}</h3>
-              <span className="text-xs text-purple-400 text-center">{product.url.replace('https://', '')}</span>
-            </motion.a>
-          ))}
+      {/* About SinX Solutions */}
+      <Section className="max-w-3xl mx-auto px-2 xs:px-4 mb-16 pt-16 pb-16">
+        <div className="flex flex-col items-center text-center">
+          <Image src="/SinX.png" alt="SinX Solutions logo" width={140} height={140} className="mb-4" />
+          <h2 className="text-5xl font-extrabold text-purple-800 mb-4">SinX Solutions</h2>
+          <p className="text-xl text-purple-700 mb-2 max-w-2xl">Empowering innovation at the intersection of AI and real-world impact. We build smart tools and platforms to help you stay ahead in a rapidly changing world.</p>
         </div>
-        <h3 className="text-xl xs:text-2xl font-semibold mb-6 text-purple-600 text-center">B2C Solutions</h3>
-        <div className="grid grid-cols-1 xs:grid-cols-2 gap-6 md:gap-8">
-          {products.b2c.map((product) => (
-            <motion.a
-              key={product.url}
-              href={product.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex flex-col items-center p-4 xs:p-6 bg-white rounded-xl shadow-md hover:shadow-xl hover:bg-purple-50 transition-all border border-purple-100 mb-6"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-            >
-              <div className="w-16 h-16 xs:w-20 xs:h-20 mb-4 flex items-center justify-center">
-                <Image src={product.logo} alt={product.name + ' logo'} width={80} height={80} />
-              </div>
-              <h3 className="text-base xs:text-lg font-semibold text-purple-800 mb-1 text-center">{product.name}</h3>
-              <span className="text-xs text-purple-400 text-center">{product.url.replace('https://', '')}</span>
-            </motion.a>
-          ))}
+      </Section>
+
+      {/* Products Section */}
+      <Section className="bg-gradient-to-br from-gray-50 via-purple-50 to-blue-50 rounded-2xl max-w-6xl mx-auto px-2 xs:px-4 shadow-2xl mb-12 border border-purple-100">
+        <h2 className="text-3xl xs:text-4xl font-bold mb-4 text-center text-purple-700">Our Products</h2>
+        {/* B2B Section */}
+        <div className="grid grid-cols-1 gap-6 md:gap-8 mb-10">
+          <motion.a
+            href="https://bundlr.sinxsolutions.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-8 bg-white/90 rounded-xl shadow-lg hover:shadow-2xl hover:bg-purple-50 transition-all border border-purple-200 w-full"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <div className="w-20 h-20 mb-4 flex items-center justify-center">
+              <Image src="/Bundlr.svg" alt="Bundlr logo" width={80} height={80} />
+            </div>
+            <h3 className="text-xl font-semibold text-purple-800 mb-1 text-center">Bundlr</h3>
+            <span className="text-base text-purple-500 text-center mb-2">Smart bundles</span>
+          </motion.a>
+        </div>
+        {/* B2C Section */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          <motion.a
+            href="https://www.mycareergrowth.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-8 bg-white/90 rounded-xl shadow-lg hover:shadow-2xl hover:bg-purple-50 transition-all border border-purple-200 w-full"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <div className="w-20 h-20 mb-4 flex items-center justify-center">
+              <Image src="/MCG.png" alt="My Career Growth logo" width={80} height={80} />
+            </div>
+            <h3 className="text-xl font-semibold text-purple-800 mb-1 text-center">My Career Growth</h3>
+            <span className="text-base text-purple-500 text-center mb-2">Career development, for professionals</span>
+          </motion.a>
+          <motion.a
+            href="https://www.knowtice.ai"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center p-8 bg-white/90 rounded-xl shadow-lg hover:shadow-2xl hover:bg-purple-50 transition-all border border-purple-200 w-full"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            <div className="w-20 h-20 mb-4 flex items-center justify-center">
+              <Image src="/Knowtice.png" alt="Knowtice AI logo" width={80} height={80} />
+            </div>
+            <h3 className="text-xl font-semibold text-purple-800 mb-1 text-center">Knowtice AI</h3>
+            <span className="text-base text-purple-500 text-center mb-2">Curated newsletters, for those who want to stay ahead</span>
+          </motion.a>
         </div>
       </Section>
 
       {/* LinkedIn Post */}
-      <Section className="bg-white/60 rounded-2xl max-w-4xl mx-auto px-2 xs:px-4 shadow-lg mb-12">
-        <h2 className="text-2xl xs:text-3xl font-bold mb-8 text-center text-purple-700">From Our Social Media</h2>
-        <div className="w-full flex flex-col md:flex-row gap-6 h-[500px] overflow-hidden rounded-xl">
+      <Section className="bg-white/60 rounded-2xl max-w-5xl mx-auto px-2 xs:px-4 shadow-lg mb-16">
+        <h2 className="text-2xl xs:text-3xl font-bold mb-10 text-center text-purple-700">From Our Social Media</h2>
+        <div className="w-full flex flex-col md:flex-row gap-8 h-[650px] overflow-hidden rounded-xl">
           <iframe 
             src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7321672216729829377" 
-            height="500" 
+            height="650" 
             width="100%" 
             frameBorder="0" 
             allowFullScreen 
@@ -193,8 +217,8 @@ export default function Home() {
             className="w-full md:w-1/2 rounded-xl"
           ></iframe>
           <iframe 
-            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7321672216729829377" 
-            height="500" 
+            src="https://www.linkedin.com/embed/feed/update/urn:li:activity:7321159430593548289" 
+            height="650" 
             width="100%" 
             frameBorder="0" 
             allowFullScreen 
@@ -205,34 +229,54 @@ export default function Home() {
       </Section>
 
       {/* ICYMI Section */}
-      <Section className="bg-purple-50 rounded-2xl max-w-4xl mx-auto px-2 xs:px-4 shadow-lg mb-12">
-        <h2 className="text-2xl xs:text-3xl font-bold mb-8 text-center text-purple-700">ICYMI</h2>
+      <Section className="bg-gray-100 rounded-2xl max-w-4xl mx-auto px-2 xs:px-4 shadow-lg mb-12">
+        <h2 className="text-2xl xs:text-3xl font-bold mb-10 text-center text-purple-700">ICYMI</h2>
         <div className="space-y-6">
           <motion.div
-            className="p-4 xs:p-6 bg-white rounded-xl shadow-md flex flex-col items-center"
+            className="relative p-8 xs:p-12 bg-white border-2 border-purple-300 rounded-xl shadow-lg flex flex-col items-center min-h-[260px] max-w-3xl mx-auto"
             whileHover={{ scale: 1.02 }}
           >
-            <h3 className="text-lg xs:text-xl font-semibold mb-2 text-purple-800">Press Release</h3>
-            <a href="#" className="text-purple-500 hover:text-purple-700 flex items-center font-medium">
-              Read More <ArrowRightIcon className="w-4 h-4 ml-2" />
-            </a>
+            {/* News badge and date */}
+            <div className="absolute left-8 top-8 flex items-center gap-3">
+              <span className="bg-red-600 text-white text-xs font-bold px-4 py-1 rounded-full tracking-widest shadow uppercase">Press Release</span>
+              <span className="text-xs text-gray-400 font-semibold ml-2">April 2025</span>
+            </div>
+            {/* Title */}
+            <h3 className="text-3xl xs:text-4xl font-extrabold mb-4 text-purple-900 mt-8 text-center border-b-2 border-purple-200 pb-2 w-full" style={{fontFamily: 'Georgia, Times, serif'}}>
+              SinX Solutions Launches My Career Growth
+            </h3>
+            <p className="text-xl text-purple-700 mb-6 text-center max-w-2xl">
+              At the Dubai AI Festival, SinX Solutions proudly unveiled <span className="font-bold text-purple-900">My Career Growth</span> (MCG)—an AI-powered platform designed to transform how professionals navigate their careers. MCG empowers users with personalized, AI-driven tools for resume building, career roadmaps, skill gap analysis, and mock interviews. The launch drew crowds and sparked conversations about the future of work, with attendees experiencing firsthand how MCG makes career development smarter, faster, and more accessible for everyone.
+            </p>
+            <motion.a
+              href="#"
+              whileHover={{ scale: 1.04 }}
+              className="bg-purple-600 hover:bg-purple-700 text-white flex items-center justify-center font-bold text-lg px-8 py-3 rounded-lg shadow transition-transform border border-purple-400 focus:outline-none focus:ring-2 focus:ring-purple-200"
+            >
+              Read More <ArrowRightIcon className="w-5 h-5 ml-2" />
+            </motion.a>
           </motion.div>
         </div>
       </Section>
 
       {/* What's Next Section - moved above Feedback Form */}
-      <Section className="bg-white/60 rounded-2xl max-w-4xl mx-auto px-2 xs:px-4 shadow-lg mb-12">
-        <h2 className="text-2xl xs:text-3xl font-bold mb-8 text-center text-purple-700">What's Next for SinX</h2>
-        <p className="text-base xs:text-lg text-purple-900 mb-0 text-center">
-          We're just getting started! SinX is committed to pushing the boundaries of AI innovation. Stay tuned for new product launches, partnerships, and opportunities to collaborate with us as we shape the future of intelligent solutions.
-        </p>
+      <Section className="bg-white/90 rounded-2xl max-w-5xl mx-auto px-2 xs:px-4 shadow-2xl mb-12 flex flex-col md:flex-row items-center md:items-stretch gap-8">
+        <div className="w-full md:w-1/2 flex items-center justify-center">
+          <Image src="/IMG_7912.JPG" alt="What's Next for SinX" width={600} height={400} className="rounded-xl object-cover w-full h-64 md:h-full" />
+        </div>
+        <div className="w-full md:w-1/2 flex flex-col justify-center">
+          <h2 className="text-3xl xs:text-4xl font-bold mb-8 text-center md:text-left text-purple-700">What's Next for SinX</h2>
+          <p className="text-xl text-purple-900 mb-0 text-center md:text-left">
+            Next up, SinX Solutions is making bold strides with <span className="font-bold text-fuchsia-700">Invisibl AI</span> and <span className="font-bold text-blue-700">Intelligence OS</span>. We're also excited to announce our move to the <span className="font-bold text-purple-700">Dubai AI Campus</span>—a new hub for innovation and collaboration. We're committed to making intelligence accessible, seamless, and truly human-first—empowering businesses and individuals to harness the full potential of AI with ease. Stay tuned for new launches and innovations that will redefine how you experience and interact with artificial intelligence. <a href="https://sinxsolutions.ai/" target="_blank" rel="noopener noreferrer" className="underline text-blue-600 hover:text-blue-800">Learn more</a>.
+          </p>
+        </div>
       </Section>
 
       {/* Feedback Form */}
       <Section className="mb-12">
         <div className="max-w-2xl mx-auto px-2 xs:px-4">
           <h2 className="text-3xl xs:text-4xl font-bold mb-8 text-center text-purple-700">Share Your Feedback</h2>
-          <form className="space-y-4 bg-white/60 p-4 xs:p-8 rounded-2xl shadow-lg">
+          <form className="space-y-4 bg-white/60 p-4 xs:p-8 rounded-2xl shadow-lg" action="mailto:info@sinxsolutions.ai" method="POST" encType="text/plain">
             <label className="block text-purple-700 font-medium mb-2" htmlFor="feedback-product">Which product is this feedback for?</label>
             <select
               id="feedback-product"
@@ -286,22 +330,25 @@ export default function Home() {
             </div>
             <div>
               <h3 className="text-lg font-semibold mb-4">Connect With Us</h3>
-              <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/company/sinxsolutions" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white">
+              <div className="flex space-x-4 mb-4">
+                <a href="https://www.linkedin.com/company/sinxsolutions/" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white">
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
                   </svg>
                 </a>
-                <a href="https://twitter.com/sinxsolutions" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white">
+                <a href="https://www.instagram.com/sinxsolutions/" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white">
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84" />
+                    <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 2.25a5.25 5.25 0 1 1 0 10.5 5.25 5.25 0 0 1 0-10.5zm0 1.5a3.75 3.75 0 1 0 0 7.5 3.75 3.75 0 0 0 0-7.5zm6 1.25a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                   </svg>
                 </a>
-                <a href="https://www.facebook.com/sinxsolutions" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white">
+                <a href="https://x.com/sinx_solutions" target="_blank" rel="noopener noreferrer" className="text-purple-200 hover:text-white">
                   <svg className="h-6 w-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                    <path d="M17.53 3H21l-7.19 7.53L22 21h-6.27l-4.13-5.06L5.5 21H2l7.64-8.01L2 3h6.27l3.77 4.63L17.53 3zm-2.13 16h2.11l-5.6-6.87-1.5 1.62L15.4 19zM6.41 5H4.3l5.6 6.87 1.5-1.62L6.41 5z" />
                   </svg>
                 </a>
+              </div>
+              <div className="text-sm text-purple-200">
+                FDRK4466 Compass Building, Al Shohada Road, Al Hamra Industrial Zone-FZ Ras Al Khaimah
               </div>
             </div>
           </div>
